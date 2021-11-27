@@ -6,11 +6,11 @@ MODEL:
     DEPTH: 101
   RPN:
     ENABLE_DECOUPLE: True
-    BACKWARD_SCALE: 0.0
+    BACKWARD_SCALE: 0.75 # default 0.0
   ROI_HEADS:
     NUM_CLASSES: 60
     ENABLE_DECOUPLE: True
-    BACKWARD_SCALE: 0.75
+    BACKWARD_SCALE: 0.75 # default 0.75
 DATASETS:
   TRAIN: ('coco14_trainval_base',)
   TEST: ('coco14_test_base',)
