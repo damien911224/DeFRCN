@@ -191,7 +191,9 @@ class COCOEvaluator(DatasetEvaluator):
             a dict of {metric name: score}
         """
 
-        metrics = ["AP", "AP50", "AP75", "APs", "APm", "APl"]
+        # metrics = ["AP", "AP50", "AP75", "APs", "APm", "APl"]
+        metrics = ["AP", "AP50", "AP75", "APs", "APm", "APl",
+                   "AR@1", "AR@10", "AR@100", "ARs", "ARm", "ARl"]
 
         if coco_eval is None:
             self._logger.warn("No predictions from the model! Set scores to -1")
