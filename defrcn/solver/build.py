@@ -116,6 +116,8 @@ def build_optimizer(cfg: CfgNode, model: torch.nn.Module) -> torch.optim.Optimiz
             memo.add(value)
             lr = cfg.SOLVER.BASE_LR
             weight_decay = cfg.SOLVER.WEIGHT_DECAY
+            print(lr, weight_decay)
+            exit()
             if isinstance(module, norm_module_types):
                 weight_decay = cfg.SOLVER.WEIGHT_DECAY_NORM
             elif key == "bias":
