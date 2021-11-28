@@ -7,7 +7,7 @@ IMAGENET_PRETRAIN_TORCH=pre-trained/ImageNetPretrained/torchvision/resnet101-5d3
 
 
 # ------------------------------- Base Pre-train ---------------------------------- #
-python3 main.py --num-gpus 4 --config-file configs/coco/defrcn_det_r101_base.yaml     \
+python3 main.py --num-gpus 2 --config-file configs/coco/defrcn_det_r101_base.yaml     \
     --opts MODEL.WEIGHTS ${IMAGENET_PRETRAIN}                                         \
            OUTPUT_DIR ${SAVEDIR}/defrcn_det_r101_base
 
@@ -31,7 +31,7 @@ do
                 --shot ${shot} --seed ${seed} --setting 'fsod'
             CONFIG_PATH=configs/coco/defrcn_fsod_r101_novel_${shot}shot_seed${seed}.yaml
             OUTPUT_DIR=${SAVEDIR}/defrcn_fsod_r101_novel/fsrw-like/${shot}shot_seed${seed}_repeat${repeat_id}
-            python3 main.py --num-gpus 4 --config-file ${CONFIG_PATH}                  \
+            python3 main.py --num-gpus 2 --config-file ${CONFIG_PATH}                  \
                 --opts MODEL.WEIGHTS ${BASE_WEIGHT} OUTPUT_DIR ${OUTPUT_DIR}           \
                        TEST.PCB_MODELPATH ${IMAGENET_PRETRAIN_TORCH}
             rm ${CONFIG_PATH}
@@ -59,7 +59,7 @@ do
             --shot ${shot} --seed ${seed} --setting 'gfsod'
         CONFIG_PATH=configs/coco/defrcn_gfsod_r101_novel_${shot}shot_seed${seed}.yaml
         OUTPUT_DIR=${SAVEDIR}/defrcn_gfsod_r101_novel/tfa-like/${shot}shot_seed${seed}
-        python3 main.py --num-gpus 4 --config-file ${CONFIG_PATH}                      \
+        python3 main.py --num-gpus 2 --config-file ${CONFIG_PATH}                      \
             --opts MODEL.WEIGHTS ${BASE_WEIGHT} OUTPUT_DIR ${OUTPUT_DIR}               \
                    TEST.PCB_MODELPATH ${IMAGENET_PRETRAIN_TORCH}
         rm ${CONFIG_PATH}
@@ -80,7 +80,7 @@ do
             --shot ${shot} --seed ${seed} --setting 'fsod'
         CONFIG_PATH=configs/coco/defrcn_fsod_r101_novel_${shot}shot_seed${seed}.yaml
         OUTPUT_DIR=${SAVEDIR}/defrcn_fsod_r101_novel/tfa-like/${shot}shot_seed${seed}
-        python3 main.py --num-gpus 4 --config-file ${CONFIG_PATH}                      \
+        python3 main.py --num-gpus 2 --config-file ${CONFIG_PATH}                      \
             --opts MODEL.WEIGHTS ${BASE_WEIGHT} OUTPUT_DIR ${OUTPUT_DIR}               \
                    TEST.PCB_MODELPATH ${IMAGENET_PRETRAIN_TORCH}
         rm ${CONFIG_PATH}
