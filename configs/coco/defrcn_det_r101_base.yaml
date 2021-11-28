@@ -6,7 +6,7 @@ MODEL:
     DEPTH: 101
   RPN:
     ENABLE_DECOUPLE: True
-    BACKWARD_SCALE: 0.01 # default 0.0
+    BACKWARD_SCALE: 0.05 # default 0.0
   ROI_HEADS:
     NUM_CLASSES: 60
     ENABLE_DECOUPLE: True
